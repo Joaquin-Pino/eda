@@ -2,22 +2,17 @@
 #include <stdlib.h>
 
 #include "list.h"
+#include "archivos.h"
 
-int main(){
+int main(int argc, char* argv[]){
+    if (argc != 2){
+        printf("uso: %s archivo.txt", argv[0]);
+        return 1;
+    }
 
-    Node *cabeza = crearNodo(0);
+    Node *cabeza = obtenerDatos(argv[1]);
 
-    // insertarNodoInicio(cabeza, 6);
-    // insertarNodoInicio(cabeza, 5);
-    // insertarNodoInicio(cabeza, 2);
-    // insertarNodoInicio(cabeza, 1);
-
-
-    printf("cantidad de elemenoos en la lista %d\n", cabeza->value);
-    //recorrerLista(cabeza);
-
-    
-    insertarEnOrden(cabeza, 3);
     recorrerLista(cabeza);
-    
+    bubbleSort(cabeza);
+    recorrerLista(cabeza);
 }

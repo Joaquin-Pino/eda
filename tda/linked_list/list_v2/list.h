@@ -1,6 +1,8 @@
+#pragma once
+
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <stdbool.h>
 typedef struct node{
     int value;
     struct node *next;
@@ -10,7 +12,6 @@ Node *crearNodo(int val){
     Node *nodo = (Node *)malloc(sizeof(Node));
     // TODO: verificar si hay suficiente memoria
     
-
     nodo->value = val;
     nodo->next = NULL;
     return nodo;
@@ -47,13 +48,14 @@ void insertarNodoFinal(Node *head, int val){
 void recorrerLista(Node *head){
     Node *aux = head->next;
     while (aux != NULL){
-        printf("%d--", aux->value);
+        printf("%d__", aux->value);
         aux = aux->next;
     }
     printf("\n");
 }
 
 void insertarEnOrden(Node *head, int val){
+    // siempre y cuando la lista este ordenada de menor a mayor
     Node *aux = head->next;
     Node *nodo = crearNodo(val);
     
@@ -65,3 +67,35 @@ void insertarEnOrden(Node *head, int val){
     aux->next = nodo;
     head->value++;
 }
+
+void swap(Node *node1, Node *node2){
+    int temp = node1->value;
+    node1->value = node2->value;
+    node2->value = temp;
+}
+
+void bubbleSort(Node *head){
+    if (head->next == NULL){
+        return;
+    }
+    
+    Node *aux;
+    Node *tope = NULL;
+    bool swapped; // para emular que se vaya acortando la lista
+    
+    do{
+        swapped = false;
+        aux = head->next;
+        
+        while (aux->next != tope){
+            if (aux->value > aux->next->value){
+                swap(aux, aux->next);
+                swapped = true;
+            }
+            aux = aux->next;
+        }
+
+        tope = aux;
+    } while (swapped);
+}
+
