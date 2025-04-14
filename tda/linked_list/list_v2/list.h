@@ -80,9 +80,9 @@ void bubbleSort(Node *head){
     }
     
     Node *aux;
-    Node *tope = NULL;
-    bool swapped; // para emular que se vaya acortando la lista
+    Node *tope = NULL; // para emular que se vaya acortando la lista
     
+    bool swapped; 
     do{
         swapped = false;
         aux = head->next;
@@ -95,7 +95,7 @@ void bubbleSort(Node *head){
             aux = aux->next;
         }
 
-        tope = aux;
+        tope = aux; 
     } while (swapped);
 }
 
