@@ -17,18 +17,26 @@ Node *crearNodo(int val){
     return nodo;
 }
 
+// void freeNodo(Node *nodo){
+//     // Node **xd = &nodo;
+//     free(xd);
+// }
+
 void insertarNodoInicio(Node *head, int val){
     Node *nodo = crearNodo(val);
 
     if (head->next == NULL){
         head->next = nodo;
         head->value = 1;
+        
         return;
     }
 
-    nodo->next =head->next;
+    nodo->next = head->next;
     head->next = nodo;
     head->value++;
+    
+
 }
 
 void insertarNodoFinal(Node *head, int val){
@@ -47,12 +55,12 @@ void insertarNodoFinal(Node *head, int val){
 
 void recorrerLista(Node *head){
     Node *aux = head->next;
-    while (aux != NULL){
+    while (aux->next != NULL){
         printf("%d__", aux->value);
         aux = aux->next;
     }
-    printf("\n");
-}
+    printf("%d__NULL\n", aux->value);
+}   
 
 void insertarEnOrden(Node *head, int val){
     // siempre y cuando la lista este ordenada de menor a mayor
@@ -104,14 +112,46 @@ void eliminarElem(Node *head, int target){
 
     while (aux->next != NULL){
         if (aux->next->value == target && aux->next->next == NULL){
+            Node *xd = aux->next;
+            
             aux->next = NULL;
+            head->value--;
+            
+            free(xd);
+            
             return;
         } else if (aux->next->value == target){
             //printf("%d\n",aux->value);
+            Node *xd = aux->next;
+            
             Node *temp = aux->next->next;
             aux->next =aux->next->next;
+            head->value--;
+            
+            free(xd);
+            
+            return;
         }
         aux = aux->next;
     }
+}
+
+int len(Node *head){
+    return head->value;
+}
+
+// void invertirLista(Node *head){
+    
+// }
+
+void freeLista(Node *head){
+    Node *aux = head->next;
+    
+    while (aux != NULL){
+        Node *xd = aux;
+        aux = aux->next;
+        free(xd);
+    }
+    free(head);
 }
 
