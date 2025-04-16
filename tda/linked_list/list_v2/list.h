@@ -99,3 +99,19 @@ void bubbleSort(Node *head){
     } while (swapped);
 }
 
+void eliminarElem(Node *head, int target){
+    Node *aux = head;
+
+    while (aux->next != NULL){
+        if (aux->next->value == target && aux->next->next == NULL){
+            aux->next = NULL;
+            return;
+        } else if (aux->next->value == target){
+            //printf("%d\n",aux->value);
+            Node *temp = aux->next->next;
+            aux->next =aux->next->next;
+        }
+        aux = aux->next;
+    }
+}
+

@@ -15,4 +15,6 @@ int main(int argc, char* argv[]){
     recorrerLista(cabeza);
     bubbleSort(cabeza);
     recorrerLista(cabeza);
+    eliminarElem(cabeza, 45);
+    recorrerLista(cabeza);
 }
