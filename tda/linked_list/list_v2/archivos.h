@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ARCHIVOS_H
+#define ARCHIVOS_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,3 +23,4 @@ Node *obtenerDatos(char *file){
     fclose(datos);
     return head;
 }
+#endif
