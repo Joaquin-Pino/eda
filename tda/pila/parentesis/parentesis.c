@@ -41,26 +41,41 @@ bool estaBalanceado(char expresion[], int len_exp){
                 if (tope(parentesis) == '['){
                     pop(parentesis);
                     break;  
-
-                } else return false;  
+                    
+                } else {
+                    free(parentesis);
+                    return false;
+                    
+                }  
             case '}':
                 if (tope(parentesis) == '{' ){
                     pop(parentesis);
                     break;
                 
-                } else return false; 
+                } else {
+                    free(parentesis);
+                    return false;
+                    
+                } 
             case ')':
                 if (tope(parentesis) == '('){
                     pop(parentesis);
                     break;
 
-                } else return false;
+                } else {
+                    free(parentesis);
+                    return false;
+                    
+                } 
         }  
     }
 
     if (estaVacia(parentesis)){
+        free(parentesis);
         return true;
+
     }
     
+    free(parentesis);
     return false;
 }
