@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-#define MAX 10
+#define MAX 50
 
 typedef struct pila{
     int datos[MAX];
@@ -46,4 +46,18 @@ int pop(Pila *pila){
 
         return dato;
     }   
+}
+
+int tope(Pila *pila){
+    if (!estaVacia){
+        return pila->datos[pila->top];
+    }
+}
+
+void printPila(Pila *pila){
+    
+    for (int i = 0; i < MAX; i++){
+        printf("%d ", pila->datos[i]);
+    }
+    printf("\n");
 }

@@ -54,10 +54,10 @@ void insertarNodoFinal(Node *head, int val){
     // printf("%d\n", aux->value);
 }
 
-void recorrerLista(Node *head){
+void printLista(Node *head){
     Node *aux = head->next;
     while (aux->next != NULL){
-        printf("%d__", aux->value);
+        printf("%d__", aux->value); 
         aux = aux->next;
     }
     printf("%d__NULL\n", aux->value);
@@ -141,9 +141,6 @@ int len(Node *head){
     return head->value;
 }
 
-// void invertirLista(Node *head){
-    
-// }
 
 void freeLista(Node *head){
     Node *aux = head->next;
@@ -156,4 +153,21 @@ void freeLista(Node *head){
     free(head);
 }
 
+void  **invertirLista(Node **head){
+    Node *anterior = NULL;
+    Node *actual = (*head)->next;
+    Node *siguiente;
+    
+    while (actual != NULL){
+        siguiente = actual->next;
+        
+        actual->next = anterior;
+        anterior = actual;
+        actual = siguiente;
+    }
+    
+    (*head)->next = anterior;
+    
+    
+}
 #endif

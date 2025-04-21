@@ -20,16 +20,19 @@ int main(int argc, char* argv[]){
     // insertarNodoInicio(cabeza, 2);
     // insertarNodoInicio(cabeza, 2);
     // insertarNodoInicio(cabeza, 2);
-    // recorrerLista(cabeza);
+    // printLista(cabeza);
     
-    recorrerLista(cabeza);
-    eliminarElem(cabeza, 1);
-    recorrerLista(cabeza);
-    bubbleSort(cabeza);
-    recorrerLista(cabeza);
+    printLista(cabeza);
+    // eliminarElem(cabeza, 1);
+    // printLista(cabeza);
+    // bubbleSort(cabeza);
+    // printLista(cabeza);
     printf("largo de la lista: %d\n", len(cabeza));
+
+  
     
-    
+    invertirLista(&cabeza);
+    printLista(cabeza);
     
     freeLista(cabeza);
 }
