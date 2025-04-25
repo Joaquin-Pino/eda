@@ -153,7 +153,7 @@ void freeLista(Node *head){
     free(head);
 }
 
-void  **invertirLista(Node **head){
+void  invertirLista(Node **head){
     Node *anterior = NULL;
     Node *actual = (*head)->next;
     Node *siguiente;
