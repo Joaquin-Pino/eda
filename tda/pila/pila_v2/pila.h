@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include <stdlib.h>
 
 typedef struct node{
@@ -12,7 +13,7 @@ typedef struct pila{
 }Pila;
 
 Node *crearNodo(int valor){
-    Node *mi_nodo = (Node *) malloc(sizeof(Node));
+    Node *mi_nodo = malloc(sizeof(Node));
     mi_nodo->value = valor;
     mi_nodo->next = NULL;
 
@@ -20,7 +21,7 @@ Node *crearNodo(int valor){
 }
 
 Pila *crearPila(){
-    Pila *mi_pila = (Pila *) malloc(sizeof(Pila));
+    Pila *mi_pila = malloc(sizeof(Pila));
     mi_pila->tope = NULL;
     return mi_pila;
 }
@@ -34,11 +35,26 @@ bool esPilaVacia(Pila *pila){
 
 void push(Pila *pila, int valor){
     Node *nodo = crearNodo(valor);
-    if (esPilaVacia(pila)){
-        pila->tope = nodo;
-    }
+    // if (esPilaVacia(pila)){
+    //     pila->tope = nodo;
+    // }
 
     nodo->next = pila->tope;
-    
+    pila->tope = nodo;
 
+}
+
+int pop(Pila *pila){
+    if (esPilaVacia(pila)){
+        printf("no se puede hacer pop a pila vacia\n");
+    } else {
+        Node *aux = pila->tope;
+        int valor = aux->value;
+        pila->tope = aux->next;
+    
+        free(aux);
+        return valor;
+    }
+
+   
 }
