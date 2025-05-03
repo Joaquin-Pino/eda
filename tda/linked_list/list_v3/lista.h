@@ -40,7 +40,6 @@ void insertarInicio(Lista *lista, int valor){
     lista->head = nodo;
     lista->len++;
 
-
 }
 
 void imprimirLista(Lista *lista){
@@ -57,6 +56,12 @@ void insertarFinal(Lista *lista, int valor){
     Node *nodo = crearNodo(valor);
     
     Node *aux = lista->head;
+
+    if (lista->head == NULL){
+        lista->head = nodo;
+        return;
+    }
+
     while (aux->next != NULL){
         aux = aux->next;
     }
@@ -144,4 +149,28 @@ void invertirLista(Lista *lista){
     }
 
     lista->head = anterior;
+}
+
+void selection(Lista *lista){
+    Node *aux1 = lista->head;
+
+    while (aux1 != NULL){
+        int minx = aux1->value;
+        Node *minp = aux1;
+        Node *aux2 = aux1->next;
+
+        while (aux2 != NULL){
+            if (minx > aux2->value){
+                minx = aux2->value;
+                minp = aux2;
+            }
+            aux2 = aux2->next;
+        }
+
+        int temp = aux1->value;
+        aux1->value = minx;
+        minp->value = temp;
+
+        aux1 = aux1->next;
+    }
 }
