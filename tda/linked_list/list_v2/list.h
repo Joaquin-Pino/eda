@@ -51,7 +51,7 @@ void insertarNodoFinal(Node *head, int val){
 
     aux->next = nodo;
     head->value++;
-    // printf("%d\n", aux->value);
+    printf("%d\n", aux->value);
 }
 
 void printLista(Node *head){

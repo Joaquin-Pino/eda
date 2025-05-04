@@ -35,10 +35,7 @@ bool esPilaVacia(Pila *pila){
 
 void push(Pila *pila, int valor){
     Node *nodo = crearNodo(valor);
-    // if (esPilaVacia(pila)){
-    //     pila->tope = nodo;
-    // }
-
+  
     nodo->next = pila->tope;
     pila->tope = nodo;
 
@@ -47,6 +44,7 @@ void push(Pila *pila, int valor){
 int pop(Pila *pila){
     if (esPilaVacia(pila)){
         printf("no se puede hacer pop a pila vacia\n");
+    
     } else {
         Node *aux = pila->tope;
         int valor = aux->value;
@@ -55,6 +53,4 @@ int pop(Pila *pila){
         free(aux);
         return valor;
     }
-
-   
 }
