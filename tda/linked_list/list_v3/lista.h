@@ -12,6 +12,17 @@ typedef struct lista{
     int len;
 }Lista;
 
+void insertarInicio(Lista *lista, int valor);
+void insertarFinal(Lista *lista, int valor);
+void imprimirLista(Lista *lista);
+void freeLista(Lista *lista);
+bool estaVacia(Lista *lista);
+void eliminarNodoInicio(Lista *lista);
+void eliminarNodoFinal(Lista *lista);
+void insertarPosicion(Lista *lista, int pos, int valor);
+void invertirLista(Lista *lista);
+void ordenarLista(Lista *lista);
+
 Node *crearNodo(int valor){
     Node *mi_nodo = (Node *)malloc(sizeof(Node));
     mi_nodo->value = valor;
@@ -151,7 +162,7 @@ void invertirLista(Lista *lista){
     lista->head = anterior;
 }
 
-void selection(Lista *lista){
+void ordenarLista(Lista *lista){
     Node *aux1 = lista->head;
 
     while (aux1 != NULL){

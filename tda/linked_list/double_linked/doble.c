@@ -3,17 +3,29 @@
 #include "doble.h"
 
 int main(){
-    ListD *listD = createListD();
+    ListD *listD = crearListaD();
 
-    insertBeginning(listD, 1);
-    insertBeginning(listD, 2);
-    insertBeginning(listD, 3);
-    insertBeginning(listD, 4);
-    insertBeginning(listD, 5);
+    insertarInicioD(listD, 1);
+    insertarInicioD(listD, 2);
+    insertarInicioD(listD, 3);
+    insertarInicioD(listD, 4);
+    insertarInicioD(listD, 5);
 
-    insertEnd(listD, 10000);
-    insertEnd(listD, 334);
-    insertEnd(listD, 121234);
+    insertarFinalD(listD, 10000);
+    insertarFinalD(listD, 334);
+    insertarFinalD(listD, 121234);
+    
+    imprimirListaD(listD);
+    ordenarD(listD);
 
-    printList(listD);
+    imprimirListaD(listD);
+
+    eliminarFinalD(listD);
+    imprimirListaD(listD);
+
+    eliminarInicioD(listD);
+    imprimirListaD(listD);
+
+    invertirListaD(listD);
+    imprimirListaD(listD);
 }
