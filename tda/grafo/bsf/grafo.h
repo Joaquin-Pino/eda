@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "lista.h"  
+
+
 typedef struct node{
     int value;
     struct node *next;
@@ -38,8 +41,6 @@ Grafo *crearGrafoVacio(int vertices){
         }
     }
 
-    
-
     return grafo;
 }
 
@@ -63,7 +64,6 @@ Grafo *leerGrafoNoDirigido(char* archivo){
     
     fscanf(arch, "%d %d", &n_vertices, &n_aristas);
 
-
     Grafo *grafo = crearGrafoVacio(n_vertices);
 
     int i, j;
@@ -85,3 +85,14 @@ int sonAdyacentes(Grafo *grafo, int vertA, int vertB){
     return 0;
 }
 
+Lista *obtenerAdyacentes(Grafo *grafo, int vertice){
+	Lista *adyacentes = crearLista();
+	
+	for(int i = 0; i < grafo->cantVertices; i++){
+		if (grafo->MA[i][vertice] != 0 && vertice < grafo->cantVertices){
+			insertarFinal(adyacentes, i);
+		}
+	}
+	
+	return adyacentes;
+}
