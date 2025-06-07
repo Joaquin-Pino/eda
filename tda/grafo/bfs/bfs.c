@@ -49,8 +49,9 @@ void bsf(Grafo *grafo, int vertice){
         }
         freeLista(adyacentes);
     }
+    
     printf("salida: \n");
-    printf("visitados: \10");
+    printf("visitados: ");
     imprimir(visitado, n);
     printf("distancia ");
     imprimir(distancia, n);

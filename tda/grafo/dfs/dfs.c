@@ -28,7 +28,6 @@ void dsf(Grafo *grafo, int vertice){
     distancia[vertice] = 0;
     padre[vertice] = -1;
 
-
     Pila *pila = crearPila();
     push(pila, vertice);
     
@@ -39,7 +38,7 @@ void dsf(Grafo *grafo, int vertice){
             visitado[u] = 1;
             Lista *lista = obtenerAdyacentes(grafo, u);
             Nodo *aux = lista->head;
-            while(aux != NULL){
+            while (aux != NULL){
                 if (visitado[aux->value] == 0){
                     push(pila, aux->value);
                     distancia[aux->value] = distancia[u] + 1;
@@ -48,7 +47,7 @@ void dsf(Grafo *grafo, int vertice){
 
                 aux = aux->next;
             }
-            freeLista(lista);
+           freeLista(lista);
         }
     }
 

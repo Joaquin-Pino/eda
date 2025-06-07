@@ -88,7 +88,7 @@ Lista *obtenerAdyacentes(Grafo *grafo, int vertice){
 	
 	for(int i = 0; i < grafo->cantVertices; i++){
 		if (grafo->MA[i][vertice] != 0 && vertice < grafo->cantVertices){
-			insertarInicio(adyacentes, i);
+			insertarFinal(adyacentes, i);
 		}
 	}
 	
