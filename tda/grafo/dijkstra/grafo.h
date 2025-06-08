@@ -45,7 +45,7 @@ Grafo *crearGrafoVacio(int vertices){
 void printMatrizAdyacencia(Grafo *grafo){
     for (int i = 0; i < grafo->cantVertices; i++){
         for (int j = 0; j < grafo->cantVertices; j++){
-            printf("%d ", grafo->MA[i][j]);
+            printf("%2d ", grafo->MA[i][j]);
         }
         printf("\n");
     }
@@ -64,12 +64,12 @@ Grafo *leerGrafoNoDirigido(char* archivo){
 
     Grafo *grafo = crearGrafoVacio(n_vertices);
 
-    int i, j;
+    int i, j, peso;
     for (int k = 0; k < n_aristas; k++){
-        fscanf(arch, "%d %d", &i, &j);
+        fscanf(arch, "%d %d %d", &i, &j, &peso);
 
-        grafo->MA[i][j] = 1;
-        grafo->MA[j][i] = 1;
+        grafo->MA[i][j] = peso;
+        grafo->MA[j][i] = peso;
     }
 
     fclose(arch);
@@ -101,5 +101,3 @@ void freeGrafo(Grafo *grafo){
     }
     free(grafo);
 }
-
-
